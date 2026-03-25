@@ -54,7 +54,7 @@ public class CWFluidRegistry {
 
     // TEXTURES
     public static final ResourceLocation LIGHTNING_TEXTURE = ResourceLocation.fromNamespaceAndPath(CreateWizardry.MOD_ID, "block/lightning");
-    public static final ResourceLocation LIGHTNING_TEXTURE_FLOWING = ResourceLocation.fromNamespaceAndPath(CreateWizardry.MOD_ID, "block/lightning");
+    public static final ResourceLocation LIGHTNING_TEXTURE_FLOWING = ResourceLocation.withDefaultNamespace("block/water_flow");
     public static final ResourceLocation MANA_TEXTURE = ResourceLocation.fromNamespaceAndPath(CreateWizardry.MOD_ID, "block/mana");
     public static final ResourceLocation MANA_TEXTURE_FLOWING = ResourceLocation.fromNamespaceAndPath(CreateWizardry.MOD_ID, "block/mana");
     //TODO: MAKE TEXTURES FOR FLOWING
@@ -144,7 +144,11 @@ public class CWFluidRegistry {
                         }
                         @Override
                         public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
-                            consumer.accept(new SimpleClientFluidType(CreateWizardry.id("block/lightning")));
+                            consumer.accept(new DualTextureTintedClientFluidType(
+                                    LIGHTNING_TEXTURE,
+                                    LIGHTNING_TEXTURE_FLOWING,
+                                    0xFFD4F7FF
+                            ));
                         }
                     });
     public static final RegistryObject<FlowingFluid> LIGHTNING =

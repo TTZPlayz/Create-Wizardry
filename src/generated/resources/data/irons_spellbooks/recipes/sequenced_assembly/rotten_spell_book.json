@@ -12,8 +12,8 @@
         "irons_spellbooks:spell_container": {
           "data": [],
           "maxSpells": 8,
-          "mustEquip": "1b",
-          "spellWheel": "1b"
+          "mustEquip": true,
+          "spellWheel": true
         }
       }
     },
